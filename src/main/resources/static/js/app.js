@@ -14,7 +14,7 @@ const $api = {
   }
 };
 
-const { createApp, ref, reactive, onMounted, computed } = Vue;
+const { createApp, ref, reactive, onMounted, computed, provide, inject } = Vue;
 const { createRouter, createWebHashHistory } = VueRouter;
 
 // ===== DASHBOARD =====
@@ -513,7 +513,7 @@ const router = createRouter({
 
 // ===== APP =====
 const app = createApp({
-  setup() { const showMsg = inject('showMsg'); const showErr = inject('showErr');
+  setup() {
     const appMsg = ref(''), appErr = ref('');
     provide('showMsg', (m) => { appMsg.value = m; setTimeout(() => appMsg.value = '', 3000); });
     provide('showErr', (e) => { appErr.value = e; setTimeout(() => appErr.value = '', 5000); });

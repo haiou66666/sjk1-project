@@ -14,7 +14,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>salary-management</name>
-    <description>企业工资管理系统</description>
+    <description>salary-management</description>
     <properties>
         <java.version>22</java.version>
     </properties>
@@ -26,6 +26,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.mysql</groupId>
