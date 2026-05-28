@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>企业工资管理系统</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="app" v-cloak>
+  <div class="app-layout">
+    <nav class="sidebar">
+      <div class="logo">💼 工资管理系统</div>
+      <div class="nav-section"><div class="nav-title">基础配置</div>
+        <router-link to="/employees">员工信息管理</router-link>
+        <router-link to="/jobs">工种信息管理</router-link>
+      </div>
+      <div class="nav-section"><div class="nav-title">考勤与津贴</div>
+        <router-link to="/attendance">考勤登记</router-link>
+        <router-link to="/allowance">加班津贴</router-link>
+      </div>
+      <div class="nav-section"><div class="nav-title">工资核算</div>
+        <router-link to="/salaries">月工资管理</router-link>
+        <router-link to="/salary/generate">生成月工资</router-link>
+        <router-link to="/bonuses">年终奖金</router-link>
+      </div>
+      <div class="nav-section"><div class="nav-title">查询统计</div>
+        <router-link to="/dept-query">部门工资查询</router-link>
+        <router-link to="/monthly-stats">按月工资统计</router-link>
+      </div>
+    </nav>
+    <main class="main-area">
+      <div v-if="appMsg" class="alert alert-success alert-dismissible fade show">{{appMsg}}<button class="btn-close" @click="appMsg=''"></button></div>
+      <div v-if="appErr" class="alert alert-danger alert-dismissible fade show">{{appErr}}<button class="btn-close" @click="appErr=''"></button></div>
+      <router-view></router-view>
+    </main>
+  </div>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script src="https://unpkg.com/vue-router@4/dist/vue-router.global.prod.js"></script>
+<script src="/js/app.js"></script>
+</body></html>
